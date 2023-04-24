@@ -95,7 +95,7 @@ public class Database extends SQLiteOpenHelper {
         values.put("mobile",mobile);
         values.put("email",email);
 
-        long data = db.update("student",values,"id="+id,null);
+        long data = db.update("User",values,"id="+id,null);
 
         if (data == -1){
             Toast.makeText(context, "Data Not Updated", Toast.LENGTH_SHORT).show();
@@ -109,7 +109,7 @@ public class Database extends SQLiteOpenHelper {
 
         SQLiteDatabase db = getWritableDatabase();
 
-        long data = db.delete("student","id="+id,null);
+        long data = db.delete("User","id="+id,null);
 
         if (data == -1){
             Toast.makeText(context, "Data Not Deleted", Toast.LENGTH_SHORT).show();

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -23,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
 //    TabLayout tabLayout;
 //    ViewPager pager;
-    ActivityMainBinding binding;
-    Database database;
+static ActivityMainBinding binding;
+    static Database database;
     List<ModelClass> datalist;
 
     @Override
@@ -50,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
                 database.InsertData(Name,Age,Mobile,Email);
 
                 // Retrieve Data
-                List<ModelClass> list = database.Retrieve();
-                binding.recycler.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-                binding.recycler.setAdapter(new DatabaseAdapter(list));
+                Retrieve(MainActivity.this);
+
+
             }
         });
 
@@ -79,5 +80,12 @@ public class MainActivity extends AppCompatActivity {
 //        tabLayout.setupWithViewPager(pager);
 
 
+    }
+
+    public static void Retrieve(Activity activity) {
+
+        List<ModelClass> list = database.Retrieve();
+        binding.recycler.setLayoutManager(new LinearLayoutManager(activity));
+        binding.recycler.setAdapter(new DatabaseAdapter(activity,list));
     }
 }

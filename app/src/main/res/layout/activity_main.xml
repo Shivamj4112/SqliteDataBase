@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/darker_gray"
+    android:background="#94AAAAAA"
     tools:context=".Activity.MainActivity">
 
     <LinearLayout
@@ -52,6 +52,7 @@
                     android:id="@+id/edtName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="20"
                     android:inputType="text"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -78,13 +79,13 @@
                 android:hint="Enter Your Mobile"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
-                app:counterMaxLength="10"
                 android:layout_marginTop="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtMobile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="10"
                     android:inputType="phone|number"/>
 
             </com.google.android.material.textfield.TextInputLayout>
